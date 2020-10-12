@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Fish List</h1>
+
+{% for oneFish in fish%}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{oneFish.age}}</span>
+    </div>
+    <div class="card-action">
+        <a href="{% url 'cats_update' cat.id %}">Edit</a>
+        <a href="{% url 'cats_delete' cat.id %}">Delete</a>
+      </div>
+    
+  </div>
+{% endfor %}
+{% endblock %}
