@@ -5,9 +5,11 @@ from django.views.generic import ListView
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
-class FishCreate(CreateView):
+class FishCreate(LoginRequiredMixin, CreateView):
     model = Fish
     fields = ['breed','age','color','length','gender', 'notes']
     success_url = '/fishs/'
@@ -17,11 +19,11 @@ class FishCreate(CreateView):
         # Let the CreateView do its job as usual
         return super().form_valid(form)
 
-class FishUpdate(UpdateView):
+class FishUpdate(LoginRequiredMixin, UpdateView):
   model = Fish
   fields = '__all__'
 
-class FishDelete(DeleteView):
+class FishDelete(LoginRequiredMixin, DeleteView):
   model = Fish
   success_url = '/fishs/'
   
@@ -29,10 +31,12 @@ class FishDelete(DeleteView):
 def home(request):
   return render(request, 'home.html')
 
+@login_required
 def fishs_index(request):
-  fishs = Fish.objects.all()
+  fishs = Fish.objects.filter(user=request.user)
   return render(request, 'fishs/index.html', { 'fishs': fishs })
 
+@login_required
 def fish_detail(request, fish_id):
   fish = Fish.objects.get(id=fish_id)
   return render(request, 'fishs/detail.html', { 'fish': fish })

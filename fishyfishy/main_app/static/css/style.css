@@ -11,9 +11,10 @@ body {
     flex: 1 0 auto;
   }
   
+  
+  
   .nav-wrapper {
     background-color: #040D2E !important;
-    color: #CFE5F2;
     
     font-size: 14px;
     font-weight: bold;
@@ -38,4 +39,10 @@ body {
 
 #card {
     text-align: center;
+}
+
+table, #table {
+  margin-top: 2rem;
+  background-color: white;
+  color: white;
 }
