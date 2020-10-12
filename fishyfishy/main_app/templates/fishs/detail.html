@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Fish List</h1>
+<h1>Fish Details</h1>
 
-{% for fish in fishes %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{fish.age}}</span>
-    </div>
-    <div class="card-action">
-        <a href="{% url 'fish_update' fish.id %}">Edit</a>
-        <a href="{% url 'fish_delete' fish.id %}">Delete</a>
-      </div>
-    
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ fish.breed }}</span>
+    <p>Age: {{ fish.age }}</p>
+    <p>Color: {{ fish.color }}</p>
+    <p>Length: {{ fish.length }}</p>
+    <p>Gender: {{ fish.gender }}</p>
+    <p>Notes: {{ fish.notes }}</p>
+
   </div>
-{% endfor %}
+  <div class="card-action">
+    <a href="{% url 'fishs_update' fish.id %}">Edit</a>
+    <a href="{% url 'fishs_delete' fish.id %}">Delete</a>
+  </div>
+</div>
+
 {% endblock %}
+
+Gender = models.CharField(max_length=30)
+    color = models.CharField(max_length=50)
+    length = models.CharField(max_length=20)
+    gender = models.CharField(max_length=6)
+    notes = models.CharField(max_length=500)

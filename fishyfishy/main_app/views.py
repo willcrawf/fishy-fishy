@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class FishCreate(CreateView):
     model = Fish
-    fields = '__all__'
+    fields = ['breed','age','color','length','gender', 'notes']
     success_url = '/fishs/'
     def form_valid(self, form):
         # Assign the logged in user (self.request.user)
@@ -30,11 +30,12 @@ def home(request):
   return render(request, 'home.html')
 
 def fishs_index(request):
-  return render(request, 'fishs/index.html', { 'fishs': 'fishs' })
+  fishs = Fish.objects.all()
+  return render(request, 'fishs/index.html', { 'fishs': fishs })
 
 def fish_detail(request, fish_id):
   fish = Fish.objects.get(id=fish_id)
-  return render(request, 'detail', { 'fish': fish })
+  return render(request, 'fishs/detail.html', { 'fish': fish })
 
 def signup(request):
   error_message = ''

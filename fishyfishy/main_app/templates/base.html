@@ -14,7 +14,7 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Fishy-Fishy</a></li>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Fishy-Fishy </a></li>
         </ul>
         <ul class="right">
             {% if user.is_authenticated %}
@@ -29,12 +29,12 @@
       </div>
     </nav>
   </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2020 Fishy-Fishy &nbsp;</div>
-  </footer>
+      <main class="container">
+          {% block content %}
+          {% endblock %}
+        </main>
+        <footer class="page-footer">
+            <div class="right">All Rights Reserved, &copy; 2020 Fishy-Fishy &nbsp;</div>
+        </footer>
 </body>
 </html>

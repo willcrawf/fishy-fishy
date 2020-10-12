@@ -1,6 +1,9 @@
 body {
     display: flex;
     min-height: 100vh;
+    background-color: rgba(255,255,255,0.6);
+    background-image: url("http://www.desktopwallpaperhd.net/wallpapers/18/0/background-web-wallpaper-ocean-sandbox-images-180256.jpg");
+    background-blend-mode: lighten;
     flex-direction: column;
   }
   
@@ -8,7 +11,31 @@ body {
     flex: 1 0 auto;
   }
   
+  .nav-wrapper {
+    background-color: #040D2E !important;
+    color: #CFE5F2;
+    
+    font-size: 14px;
+    font-weight: bold;
+  }
+
   footer.page-footer {
+    background-color: #040D2E !important;
     padding-top: 0;
     text-align: right;
   }
+
+  #logo {
+    width: 150px; /* width of container */
+    height: 100px; /* height of container */
+    overflow: hidden;
+    border: 5px solid black;
+}
+
+#logo img {
+    margin: -10px 0px 0px -180px;
+}
+
+#card {
+    text-align: center;
+}

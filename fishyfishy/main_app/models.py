@@ -15,7 +15,7 @@ class Fish(models.Model):  # Note that parens are optional if not inheriting fro
 
 
     def __str__(self):
-        return self.name
+        return self.breed
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'fish_id': self.id})
