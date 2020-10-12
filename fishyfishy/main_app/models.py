@@ -11,10 +11,11 @@ class Fish(models.Model):  # Note that parens are optional if not inheriting fro
     length = models.CharField(max_length=20)
     gender = models.CharField(max_length=6)
     notes = models.CharField(max_length=500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
-        return self.breed
-        
-    # Add this method
+        return self.name
+    
     def get_absolute_url(self):
         return reverse('detail', kwargs={'fish_id': self.id})
